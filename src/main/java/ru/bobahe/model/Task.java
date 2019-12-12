@@ -4,10 +4,19 @@ import java.time.ZonedDateTime;
 
 public class Task {
 
+    private String id;
     private String title;
     private String description;
     private ZonedDateTime startDate;
     private ZonedDateTime endDate;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(final String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
