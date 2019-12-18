@@ -6,5 +6,6 @@ public interface TaskRepository {
 
     Task save(Task task);
     void delete(Task task);
+    Task getById(String id);
 
 }

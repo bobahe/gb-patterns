@@ -31,4 +31,10 @@ public class TaskRepositoryImpl implements TaskRepository {
         storage.remove(task.getId());
     }
 
+    @Override
+    public Task getById(final String id) {
+        if (id == null) throw new IllegalArgumentException("Неверно указан ключ.");
+        return storage.get(id);
+    }
+
 }
