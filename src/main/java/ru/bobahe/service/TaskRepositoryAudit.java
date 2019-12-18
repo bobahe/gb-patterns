@@ -7,6 +7,7 @@ public class TaskRepositoryAudit implements TaskRepository {
 
     private static final String SAVE_MSG = "Сохранение ";
     private static final String REMOVE_MSG = "Удаление ";
+    private static final String GET_MSG = "Получение ";
 
     private TaskRepository original;
 
@@ -26,6 +27,13 @@ public class TaskRepositoryAudit implements TaskRepository {
         original.delete(task);
         auditOperation(REMOVE_MSG, task.getId());
     }
+
+    @Override
+    public Task getById(final String id) {
+        auditOperation(GET_MSG, id);
+        return original.getById(id);
+    }
+
 
     private void auditOperation(final String operation, final String objectId) {
         System.out.println("--> " + operation + " задачи с id: " + objectId);
